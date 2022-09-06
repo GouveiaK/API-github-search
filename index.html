@@ -4,37 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API GITHUB | KASSIANO GOUVEIA</title>
-    <style>
-        body{
-            display: flex;
-            flex-direction: column;
-           justify-content: space-between;
-           align-items: center;
-        }
-        h1, p {
-            text-align: center;
-        }
-    </style>
+    <title>API | CEP</title>
 </head>
 <body>
-    <header>
-        <div>
-            <h1>API GITHUB</h1>
-            <p>os melhores estão aqui!</p>
-        </div>
-        <nav>
-            <input id="user" type="text" placeholder="Digite o login do usuário...">
-            <button id="search">Procurar</button>
-        </nav>
-    </header>
-    <main>
-        <h1 id="login">Nome: </h1>
-        <p id="id">Id: </p>
-        <p>Url: <a id="url" href="" target="_blank" ></a> </p>
-        <p>Repositórios: <a href="" target="_blank" id="repositorios"></a></p>
-
-    </main>
+    <input type="text" placeholder="Digite o número do CEP" id="inputcep">
+    <button id="btn">Procurar</button>
+    <h1 id="cep"></h1>
+    <fieldset>
+        <h2>logradouro: 
+            <h2 id="logradouro"></h2>
+        </h2>
+        <h2>
+            bairro: 
+            <h2 id="bairro"></h2>
+        </h2>
+        <h2>localidade: 
+            <h2 id="localidade"></h2>
+        </h2>
+        <h2>
+            uf: 
+            <h2 id="uf"></h2>
+        </h2>
+        <h2>
+            ddd: 
+            <h2 id="ddd"></h2>
+        </h2>
+    </fieldset>
     <script src="script.js"></script>
 </body>
 </html>

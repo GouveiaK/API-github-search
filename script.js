@@ -1,25 +1,25 @@
-const btn = document.getElementById('search');
-const user = document.getElementById('user');
-async function getUser(){
-    let users = user.value;
-    const name = async (users)=>{
-        const apiGitHub = await fetch(`https://api.github.com/users/${users}`)
+const inputcep = document.getElementById('inputcep');
+
+const btn = document.getElementById('btn');
+async function apiRequest(cep){
+    const api_url = await fetch(`https://viacep.com.br/ws/${cep}/json/`)
+    .then(response => response.json()
         .then(
-            response => response.json()
-        )
-        .then((data)=>{
-            document.getElementById('login').innerHTML = `Nome: ${data.login}`
-            document.getElementById('id').innerHTML = `Id: ${data.id}`
-            document.getElementById('url').innerHTML = `${data.html_url}`
-            const idUrl = document.getElementById('url').href = `${data.html_url}`
-            document.getElementById('repositorios').innerHTML = `${data.repos_url}`
-            const repositorios = document.getElementById('repositorios').href = `${data.repos_url}`
-        }
-            
-        )
-            
-        
-    }
-    name(users)
+            (data) => {
+                document.getElementById('cep').innerHTML = data.cep;
+                document.getElementById('logradouro').innerHTML = data.logradouro;
+                document.getElementById('bairro').innerHTML = data.bairro;
+                document.getElementById('localidade').innerHTML = data.localidade;
+                document.getElementById('uf').innerHTML = data.uf;
+                document.getElementById('ddd').innerHTML = data.ddd;
+            }
+        ))
 }
-btn.addEventListener('click', getUser);
+document.addEventListener('keypress', function chamarInput(e){
+    if(e.key === 'Enter'){
+        apiRequest(inputcep.value)
+    }
+});
+btn.addEventListener("click", function chamarInput(e){
+    apiRequest(inputcep.value)
+});
